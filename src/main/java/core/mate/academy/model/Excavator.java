@@ -4,7 +4,7 @@ public class Excavator extends Machine {
     private String name;
     private String color;
     private String type;
-    private String maxDeep;
+    private int maxDeep;
 
     public Excavator() {
     }
@@ -17,11 +17,11 @@ public class Excavator extends Machine {
         this.type = type;
     }
 
-    public String getMaxDeep() {
+    public int getMaxDeep() {
         return maxDeep;
     }
 
-    public void setMaxDeep(String maxDeep) {
+    public void setMaxDeep(int maxDeep) {
         this.maxDeep = maxDeep;
     }
 
