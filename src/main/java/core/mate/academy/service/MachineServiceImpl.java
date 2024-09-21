@@ -7,7 +7,6 @@ import core.mate.academy.model.Truck;
 import core.mate.academy.producer.BulldozerProducer;
 import core.mate.academy.producer.ExcavatorProducer;
 import core.mate.academy.producer.TruckProducer;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MachineServiceImpl<T extends Machine> implements MachineService<T> {
