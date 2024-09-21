@@ -12,22 +12,22 @@ import java.util.List;
 
 public class MachineServiceImpl<T extends Machine> implements MachineService<T> {
     @Override
-    public List<Machine> getAll(Class<? extends Machine> type) {
-        List<Machine> list = new ArrayList<>();
+    public List<T> getAll(Class<? extends T> type) {
+        List<T> list = List.of();
         if (type.equals(Bulldozer.class)) {
-            list = new ArrayList<>(new BulldozerProducer().get());
+            list = (List<T>) new BulldozerProducer().get();
         }
         if (type.equals(Excavator.class)) {
-            list = new ArrayList<>(new ExcavatorProducer().get());
+            list = (List<T>) new ExcavatorProducer().get();
         }
         if (type.equals(Truck.class)) {
-            list = new ArrayList<>(new TruckProducer().get());
+            list = (List<T>) new TruckProducer().get();
         }
         return list;
     }
 
     @Override
-    public void fill(List<? super Machine> machines, T value) {
+    public void fill(List<? super T> machines, T value) {
         if (!machines.isEmpty()) {
             for (int i = 0; i < machines.size(); i++) {
                 machines.set(i, value);
@@ -36,8 +36,8 @@ public class MachineServiceImpl<T extends Machine> implements MachineService<T> 
     }
 
     @Override
-    public void startWorking(List<? extends Machine> list) {
-        for (Machine machine : list) {
+    public void startWorking(List<? extends T> machines) {
+        for (Machine machine : machines) {
             machine.doWork();
         }
     }
